@@ -1,9 +1,3 @@
-----------------------------------------------------------------------------------
--- Realizado por la catedra  DISeño Lógico (UNTREF) en 2015
--- Tiene como objeto brINdarle a los alumnos un template del procesador requerido
--- PrOFesores Martín Vázquez - Lucas Leiva
-----------------------------------------------------------------------------------
-
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
@@ -60,7 +54,7 @@ END COMPONENT;
 
 COMPONENT program_counter PORT(
 								pc_clk : IN  std_logic;
-							    rst :    IN  std_logic
+							    pc_rst : IN  std_logic
 								pc_out:  OUT std_logic_vector(6 DOWNTO 0)
 								);
 END COMPONENT; 
@@ -166,7 +160,7 @@ c_decode: decode PORT MAP (
 c_program_counter: program_counter PORT MAP (
 											 pc_clk =>  clk,
 											 pc_out: => s_pc_out,
-							    			 rst : =>   rst
+							    			 pc_rst : =>   rst
 											);
 
 c_reg_ir: regs_ir PORT MAP (
