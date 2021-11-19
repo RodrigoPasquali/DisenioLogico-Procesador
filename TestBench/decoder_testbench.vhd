@@ -3,7 +3,7 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 USE ieee.std_logic_arith.ALL;
 
-ENTITY decoder_tb is
+ENTITY decoder_tb IS
 END decoder_tb;
 
 

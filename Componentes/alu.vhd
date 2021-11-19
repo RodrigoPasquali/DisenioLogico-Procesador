@@ -1,37 +1,34 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+USE IEEE.std_logic_unsigned.ALL;
 
-entity alu is
-  port ( a:  in std_logic_vector (7 downto 0);
-         b:  in std_logic_vector (7 downto 0);
-         op: in std_logic_vector (2 downto 0);
-         s:  out std_logic_vector (7 downto 0)
+ENTITY alu IS
+  PORT ( alu_a:  IN  std_logic_vectOR(7 DOWNTO 0);
+         alu_b:  IN  std_logic_vectOR(7 DOWNTO 0);
+         alu_op: IN  std_logic_vectOR(2 DOWNTO 0);
+         alu_s:  OUT std_logic_vectOR(7 DOWNTO 0)
         );    
-end alu;
+END alu;
  
-architecture Beh_arqui of alu is
-  
- signal aux : std_logic_vector (7 downto 0); 
+ARCHITECTURE alu_behavioral OF alu IS
+  SIGNAL s_aux : std_logic_vectOR (7 DOWNTO 0); 
 
-begin
+BEGIN
      
- process (a, b, op)
+ PROCESS (alu_a, alu_b, alu_op)
+ BEGIN   
+    CASE alu_op IS
+      WHEN "000" => s_aux <= alu_a;
+      WHEN "001" => s_aux <= (alu_a(6 DOWNTO 0) & '0');
+      WHEN "010" => s_aux <= alu_a + alu_b;
+      WHEN "011" => s_aux <= alu_a - alu_b;
+      WHEN "100" => s_aux <= alu_a AND alu_b;
+      WHEN "101" => s_aux <= alu_a OR alu_b;
+      WHEN "110" => s_aux <= alu_a XOR alu_b; 
+      WHEN "111" => s_aux <= (alu_a(7) & alu_a(7 DOWNTO 1));
+      WHEN OTHERS => s_aux <= (OTHERS => '0');                  
+    END CASE;
+  END PROCESS;
  
- begin
-   
-    case op is
-      when "000" => aux <= a;
-      when "001" => aux <=(a(6 downto 0) & '0');
-      when "010" => aux <= a+b;
-      when "011" => aux <= a-b;
-      when "100" => aux <= a and b;
-      when "101" => aux <= a or b;
-      when "110" => aux <= a xor b; 
-      when "111" => aux <=(a(7) & a(7 downto 1));
-      when others => aux <= (others => '0');                  
-    end case;
-  end process;
- 
-s <= aux;
-end Beh_arqui;
+  alu_s <= s_aux;
+END alu_behavioral;
