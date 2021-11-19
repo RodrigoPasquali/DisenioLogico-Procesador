@@ -40,7 +40,6 @@ BEGIN
 		 				              decode_bus_sel =>  s_decode_bus_sel
                           );
 
-
    -- TestBench
    PROCESS 
    	BEGIN

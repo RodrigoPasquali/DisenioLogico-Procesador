@@ -3,7 +3,8 @@ USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;
 
 ENTITY alu IS
-  PORT ( alu_a:  IN  std_logic_vectOR(7 DOWNTO 0);
+  PORT ( 
+         alu_a:  IN  std_logic_vectOR(7 DOWNTO 0);
          alu_b:  IN  std_logic_vectOR(7 DOWNTO 0);
          alu_op: IN  std_logic_vectOR(2 DOWNTO 0);
          alu_s:  OUT std_logic_vectOR(7 DOWNTO 0)

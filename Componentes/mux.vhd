@@ -1,22 +1,20 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
 
-entity Mux is
-	port (a: in std_logic_vector(7 downto 0);
-    	  b: in std_logic_vector(7 downto 0);
-          c: in std_logic_vector(7 downto 0);
-          sel: in std_logic_vector(1 downto 0);
-          o: out std_logic_vector(7 downto 0);
+ENTITY mux IS
+	PORT (
+		  mux_in_0 : IN  std_logic_vector(7 DOWNTO 0); 
+		  mux_in_1 : IN  std_logic_vector(7 DOWNTO 0);
+		  mux_in_2 : IN  std_logic_vector(7 DOWNTO 0);
+		  mux_sel :  IN  std_logic_vector(1 DOWNTO 0);		
+		  mux_out :  OUT std_logic_vector(7 DOWNTO 0)
           );
-end Mux;
+END mux;
 
-architecture Beh_Mux of Mux is
+ARCHITECTURE mux_behavioral OF mux IS
 
-begin
-
-	o <= c when (sel(1) = '1') else --el input
-         b when (sel(0) = '1') else -- IR inmediato
-         a; --Regs
-
-
-end Beh_Mux;
+BEGIN
+	mux_out <= mux_in_2 WHEN (mux_sel = "10") ELSE --el input
+         	   mux_in_1 WHEN (mux_sel = "01") ELSE -- IR inmediato
+        	   mux_in_0;						   --Regs
+END mux_behavioral;

@@ -1,48 +1,54 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity Mux_tb is
-end Mux_tb;
+ENTITY mux_tb IS
+END mux_tb;
 
-architecture Beh_Mux_tb of Mux_tb is
+ARCHITECTURE arch_mux_tb OF mux_tb IS
 
-component Mux
-        port (a: in std_logic_vector(7 downto 0);
-              b: in std_logic_vector(7 downto 0);
-              c: in std_logic_vector(7 downto 0);
-              sel: in std_logic_vector(1 downto 0);
-              o: out std_logic_vector(7 downto 0);
-          );
-end component;
+    COMPONENT mux
+            PORT (
+                  mux_in_0: IN  std_logic_vector(7 DOWNTO 0);
+                  mux_in_1: IN  std_logic_vector(7 DOWNTO 0);
+                  mux_in_2: IN  std_logic_vector(7 DOWNTO 0);
+                  mux_sel:  IN  std_logic_vector(1 DOWNTO 0);
+                  mux_out:  OUT std_logic_vector(7 DOWNTO 0)
+                 );
+    END COMPONENT;
 
-    signal a:  std_logic_vector(7 downto 0);
-    signal b:  std_logic_vector(7 downto 0);
-    signal c:  std_logic_vector(7 downto 0);
-    signal sel:  std_logic_vector(1 downto 0);
-    signal o: std_logic_vector(7 downto 0);
+    SIGNAL s_mux_in_0: std_logic_vector(7 DOWNTO 0);
+    SIGNAL s_mux_in_1: std_logic_vector(7 DOWNTO 0);
+    SIGNAL s_mux_in_2: std_logic_vector(7 DOWNTO 0);
+    SIGNAL s_mux_sel:  std_logic_vector(1 DOWNTO 0);
+    SIGNAL s_mux_out:  std_logic_vector(7 DOWNTO 0);
                   
-begin
-    UUT: Mux
-    port map (a=> a, b=>b, c=>c, sel=> sel, o=>o);
+BEGIN
+    UUT: mux PORT MAP (
+                       mux_in_0 => s_mux_in_0,
+                       mux_in_1 => s_mux_in_1,
+                       mux_in_2 => s_mux_in_2,
+                       mux_sel  => s_mux_sel,
+                       mux_out  => s_mux_out
+                      );
     
-    Test: process
-    begin
-        a <= "00000011";
-        b <= "00000001";
-        c <= "00000101";
-        sel <= "10";
-        wait for 10 ns;
-        assert (o = c);
+    Test: PROCESS
+    BEGIN
+        s_mux_in_0 <= "00000011";
+        s_mux_in_1 <= "00000001";
+        s_mux_in_2 <= "00000101";
+        s_mux_sel <= "10";
+        WAIT FOR 10 ns;
+        ASSERT (s_mux_out = s_mux_in_2);
         
 
-        sel <= "01";
-        wait for 10 ns;
-        assert (o = b);
+        s_mux_sel <= "01";
+        WAIT FOR 10 ns;
+        ASSERT (s_mux_out = s_mux_in_1);
        
-        sel <= "00";
-        wait for 10 ns;
-        assert (o = a);
+        s_mux_sel <= "00";
+        WAIT FOR 10 ns;
+        ASSERT (s_mux_out = s_mux_in_0);
         
-        wait;      
-    end process;
-end Beh_Mux_tb;
+        WAIT;      
+    END PROCESS;
+END arch_mux_tb;
