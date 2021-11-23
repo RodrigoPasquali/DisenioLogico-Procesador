@@ -52,6 +52,9 @@ BEGIN
       WAIT FOR 10 ns; -- A xor B
       
       s_op <= "111";    -- A >> 1 (desplazamiento der) 
-      WAIT; 
+      WAIT FOR 10 ns; -- A xor B
+
+      s_op <= "UUU";
+      WAIT;
   END PROCESS;    
 END arch_alu_tb;
