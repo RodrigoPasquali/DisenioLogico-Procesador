@@ -19,7 +19,7 @@ SIGNAL s_rom_prog_out :  std_logic_vector(15 DOWNTO 0);
 BEGIN
   mi_rom : rom_prog
       PORT MAP (
-            rom_prog_addr => s_rom_prog_addr,
+                rom_prog_addr => s_rom_prog_addr,
                 rom_prog_out =>  s_rom_prog_out
                 );
                 
