@@ -42,82 +42,82 @@ BEGIN
     s_regs_bench_rst <= '1';
     s_regs_bench_we  <= '1';
 --rd --> escribo en posicion 1 lo de din   
-    s_regs_bench_rs  <= "0001";
+    s_regs_bench_rd  <= "0001";
 --rs --> mostrame posicion 1  en dout  
     WAIT FOR 5 ns;
 
     s_regs_bench_din <= "10000000"; --80
-    s_regs_bench_rd  <= "0001";
+    s_regs_bench_rs  <= "0001";
     s_regs_bench_clk <= '1';
     s_regs_bench_rst <= '0';
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
-    s_regs_bench_rs  <= "0010";
+    s_regs_bench_rd  <= "0010";
     WAIT FOR 5 ns;
 
     s_regs_bench_din  <= "10000001"; --81
-    s_regs_bench_rd  <= "0010";
+    s_regs_bench_rs  <= "0010";
     s_regs_bench_clk <= '1';
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
-    s_regs_bench_rs  <= "0011";
+    s_regs_bench_rd  <= "0011";
     s_regs_bench_din  <= "10000010"; --82
     WAIT FOR 5 ns;
     
     s_regs_bench_clk <= '1';
-    s_regs_bench_rd  <= "0011";
+    s_regs_bench_rs  <= "0011";
     WAIT FOR 5 ns;
    
     s_regs_bench_clk <= '0';
-    s_regs_bench_rs  <= "0100";
+    s_regs_bench_rd  <= "0100";
     s_regs_bench_din  <= "10000011";
     WAIT FOR 5 ns;
     
     s_regs_bench_clk <= '1';
-    s_regs_bench_rd  <= "0100";
+    s_regs_bench_rs  <= "0100";
     s_regs_bench_din <= "00010000";
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
-    s_regs_bench_rs  <= "0101";
+    s_regs_bench_rd  <= "0101";
     s_regs_bench_we  <= '0';
     s_regs_bench_din  <= "10000100";
     WAIT FOR 5 ns;
     
-    s_regs_bench_rd  <= "0101";
+    s_regs_bench_rs  <= "0101";
     s_regs_bench_clk <= '1';
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
     s_regs_bench_we  <= '1';
-    s_regs_bench_rs  <= "0001";
+    s_regs_bench_rd  <= "0001";
     s_regs_bench_din  <= "10000110";
     WAIT FOR 5 ns;
     
-    s_regs_bench_rd  <= "0001";
+    s_regs_bench_rs  <= "0001";
     s_regs_bench_clk <= '1';
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
     s_regs_bench_we  <= '0';
-    s_regs_bench_rs  <= "0010";
+    s_regs_bench_rd  <= "0010";
     s_regs_bench_din  <= "10000110";
     WAIT FOR 5 ns;
     
-    s_regs_bench_rd  <= "0010";
+    s_regs_bench_rs  <= "0010";
     s_regs_bench_clk <= '1';
     WAIT FOR 5 ns;
 
     s_regs_bench_clk <= '0';
     s_regs_bench_rst <= '1';
     s_regs_bench_we  <= '1';
-    s_regs_bench_rs  <= "0110";
+    s_regs_bench_rd  <= "0110";
     s_regs_bench_din  <= "10000101";
     WAIT FOR 5 ns;
     
-    s_regs_bench_rd  <= "0110";
+    s_regs_bench_rs  <= "0110";
     s_regs_bench_clk <= '1';
 
     WAIT; 
