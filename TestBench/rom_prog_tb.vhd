@@ -27,7 +27,7 @@ BEGIN
         BEGIN
          s_rom_prog_addr <= "0000000";
          WAIT FOR 10 ns;
-         ASSERT s_rom_prog_out ="0000000101100000" REPORT "falla" SEVERITY FAILURE;
+         ASSERT s_rom_prog_out ="0000000100000011" REPORT "falla" SEVERITY FAILURE;
 
          s_rom_prog_addr <= "1111111";
          WAIT FOR 10 ns; 
@@ -35,7 +35,7 @@ BEGIN
          
          s_rom_prog_addr <= "0000001";
          WAIT FOR 10 ns; 
-         ASSERT s_rom_prog_out = "0000010000000011" REPORT "falla" SEVERITY FAILURE;
+         ASSERT s_rom_prog_out = "0000010000110000" REPORT "falla" SEVERITY FAILURE;
           
          WAIT; 
       END PROCESS; 
