@@ -129,7 +129,7 @@ c_regs:  regs_bench PORT MAP (
 						regs_bench_rst =>  rst,
 						regs_bench_we =>   s_decode_regs_bench_we, 
 					    regs_bench_rd =>   s_reg_ir_out(3 DOWNTO 0),
-					    regs_bench_rs =>   s_reg_ir_out(7 DOWNTO 4), 
+					    regs_bench_rs =>   s_reg_ir_out(7 DOWNTO 4),
 						regs_bench_din =>  s_bus2_regout_in,
 						regs_bench_dout => s_regs_bench_dout
 						); 
