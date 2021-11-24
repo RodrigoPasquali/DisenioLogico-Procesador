@@ -162,8 +162,7 @@ c_program_counter: program_counter PORT MAP (
 
 											 pc_rst =>  rst,
 											 pc_clk =>  clk,
-											 pc_out => s_pc_out,
-							    			 
+											 pc_out => s_pc_out
 											);
 
 c_reg_ir: regs_ir PORT MAP (

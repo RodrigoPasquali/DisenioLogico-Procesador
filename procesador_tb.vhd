@@ -10,9 +10,9 @@ END procesador_tb;
 ARCHITECTURE arch_procesador_tb OF procesador_tb IS 
    -- declaración de componente de unidad bajo testeo
    COMPONENT procesador
-   	PORT(
+      PORT(
            clk :      IN   std_logic;
-           rst :    IN   std_logic;
+           rst :      IN   std_logic;
            proc_in :  IN   std_logic_vector(7 DOWNTO 0);
            proc_out : OUT  std_logic_vector(7 DOWNTO 0)
          );
@@ -28,20 +28,20 @@ ARCHITECTURE arch_procesador_tb OF procesador_tb IS
 BEGIN
    -- Unit Under Test port map
    UUT: procesador PORT MAP (
-               			      clk =>      s_clk,
+                              clk =>      s_clk,
                               rst =>      s_rst,  
-		 				      proc_in =>  s_proc_in, 
-		 				      proc_out => s_proc_out
+                              proc_in =>  s_proc_in, 
+                              proc_out => s_proc_out
                             );
                             
    PROCESS 
-   	BEGIN
+      BEGIN
          s_clk <= '0';
          s_rst <= '1';
          WAIT FOR 1 ns;
 
 --0: in r3 
-         s_proc_in <= "10101010";  
+         s_proc_in <= "00000001";  
          s_clk <= '1';
          s_rst <= '0';
          WAIT FOR 1 ns;
@@ -122,7 +122,21 @@ BEGIN
          s_clk <= '0';
          WAIT FOR 1 ns;
 
-         s_clk <= '1';               
+         s_clk <= '1';  
+         WAIT FOR 1 ns;
+
+--15
+         s_clk <= '0';
+         WAIT FOR 1 ns;
+
+         s_clk <= '1';  
+         WAIT FOR 1 ns;
+         
+--16
+         s_clk <= '0';
+         WAIT FOR 1 ns;
+
+         s_clk <= '1'; 
       WAIT;
    END PROCESS;          
 END arch_procesador_tb; 
