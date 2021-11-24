@@ -20,7 +20,7 @@ BEGIN
  BEGIN
    
     CASE rom_prog_addr IS
---                                  ins    rs  rd
+--                                  ins    rs  rd    con in = 00000001
       WHEN "0000000" => s_aux <= "0000000100000011"; --x"0130" 1  in(rd)     r3      r3 = 1   
       WHEN "0000001" => s_aux <= "0000010000110000"; --x"0403" 2  lda(rs)    r3      r3 = 1 ra = 1 
       WHEN "0000010" => s_aux <= "0000101000110100"; --x"0A43" 3  add(rd-rs) r4,r3   r4 = 2 ra = 1
