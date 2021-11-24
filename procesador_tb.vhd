@@ -36,103 +36,103 @@ BEGIN
                             
    PROCESS 
       BEGIN
+--0: reset
          s_clk <= '0';
          s_rst <= '1';
          WAIT FOR 1 ns;
 
---0: in r3 
+--1: in(rd)     r3      r3 = 1 
          s_proc_in <= "00000001";  
          s_clk <= '1';
          s_rst <= '0';
          WAIT FOR 1 ns;
          
---2
+--2: lda(rs)    r3      r3 = 1 ra = 1
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---3
+--3: add(rd-rs) r4,r3   r4 = 2 ra = 1
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---4
+--4: sub(rd-rs) r5, r4  r5 = 1 ra = 1
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---5
+--5: or(rd-rs)  r6, r4  r6 = 3 ra = 1
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---6
+--6: and(rd-rs) r7, r0  r7 = 0
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---7
+--7: mov(rd-rs) r14, r4 r14 = 2
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---8
+--8: out(rs)    r3 = 1     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---9
+--9: out(rs)    r4 = 2     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---10
+--10: out(rs)    r5 = 1     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---11
+--11: out(rs)    r6 = 3     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---12
+--12: out(rs)    r7 = 0     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---13
+--13: out(rs)    r8 = 0     
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';
          WAIT FOR 1 ns;
---14
+--14: out(rs)    r13 = 0    
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';  
          WAIT FOR 1 ns;
-
---15
+--15: out(rs)    r14 = 2    
          s_clk <= '0';
          WAIT FOR 1 ns;
 
          s_clk <= '1';  
          WAIT FOR 1 ns;
          
---16
+--16: para ver out 15
          s_clk <= '0';
          WAIT FOR 1 ns;
 
