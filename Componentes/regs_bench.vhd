@@ -31,11 +31,11 @@ BEGIN
       END LOOP; 
     ELSIF (regs_bench_clk'EVENT AND regs_bench_clk = '1') THEN
       IF (regs_bench_we = '1') THEN
---rd --> indica posicion del array
-        reg(conv_integer(unsigned(regs_bench_rd))) <= regs_bench_din;
+--rs --> indica posicion del array
+        reg(conv_integer(unsigned(regs_bench_rs))) <= regs_bench_din;
       END IF;
     END IF; 
   END PROCESS; 
---rs --> indica que posicion entrega en la salida
-  regs_bench_dout <= reg(conv_integer(unsigned(regs_bench_rs))); 
+--rd --> indica que posicion entrega en la salida
+  regs_bench_dout <= reg(conv_integer(unsigned(regs_bench_rd))); 
 END regs_bench_behavioral;
