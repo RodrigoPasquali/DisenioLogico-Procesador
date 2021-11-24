@@ -38,18 +38,18 @@ END COMPONENT;
 
 COMPONENT rom_prog PORT (
 						 rom_prog_addr : IN  std_logic_vector(6 DOWNTO 0);
-        				 rom_prog_out : OUT std_logic_vector(15 DOWNTO 0)
+        				 rom_prog_out :  OUT std_logic_vector(15 DOWNTO 0)
 						 );
 END COMPONENT; 
 
 
 COMPONENT decode PORT (
-					    decode_in 			  :      IN   std_logic_vector(7 DOWNTO 0);
+					    decode_in 			  :  IN   std_logic_vector(7 DOWNTO 0);
 					    decode_out_we 		  :  OUT  std_logic;
 				        decode_regs_bench_we  :  OUT  std_logic;
 				        decode_alu_op         :  OUT  std_logic_vector(2 DOWNTO 0);
-				        decode_reg_a_we       : OUT  std_logic;
-				        decode_bus_sel        : OUT  std_logic_vector(1 DOWNTO 0)
+				        decode_reg_a_we       :  OUT  std_logic;
+				        decode_bus_sel        :  OUT  std_logic_vector(1 DOWNTO 0)
 					   );
 END COMPONENT;
 
