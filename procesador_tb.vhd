@@ -39,10 +39,10 @@ BEGIN
 --0: reset
          s_clk <= '0';
          s_rst <= '1';
+         s_proc_in <= "00000001";  
          WAIT FOR 1 ns;
 
 --1: in(rd)     r3      r3 = 1 
-         s_proc_in <= "00000001";  
          s_clk <= '1';
          s_rst <= '0';
          WAIT FOR 1 ns;
